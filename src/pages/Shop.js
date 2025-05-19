@@ -16,6 +16,14 @@ function Shop() {
     onSale: false,
     inStock: false,
   });
+  useEffect(() => {
+    if (products) {
+      console.log(
+        "Tên danh mục trong dữ liệu:",
+        products.map((p) => p.category[0].name)
+      );
+    }
+  }, [products]);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -35,7 +43,7 @@ function Shop() {
 
       if (filters.shopby.length > 0) {
         filtered = filtered.filter((product) =>
-          filters.shopby.includes(product.category.name)
+          product.category.some((c) => filters.shopby.includes(c.name))
         );
       }
 
@@ -67,7 +75,6 @@ function Shop() {
       setFilteredProducts(filtered);
     }
   }, [filters, products, searchTerm]);
-
   return (
     <div className="shop-container">
       <h1 className="shop-title">Shop The Latest</h1>
