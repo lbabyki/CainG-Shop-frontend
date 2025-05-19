@@ -1,0 +1,11 @@
+:root {
+  --light-gray: #efefef;
+  --middle-gray: #dcdcdc;
+  --dark-gray: #707070;
+  --accent-light: #a18a68;
+  --light-white: white;
+  --border-light-gray: #d8d8d8;
+}
+body {
+  font-family: "Allerta Stencil", Arial, sans-serif;
+}

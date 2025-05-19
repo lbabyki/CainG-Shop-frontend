@@ -1,0 +1,47 @@
+.about-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.about-container h1 {
+  margin-bottom: 20px;
+}
+.subtitle {
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+.about-container h1 {
+  text-align: center;
+}
+.description {
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.section {
+  margin-bottom: 50px;
+}
+
+.section h3 {
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.section-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.section ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+.section p,
+.section li {
+  margin-bottom: 10px;
+}
+p {
+  line-height: 1.6;
+}

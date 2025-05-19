@@ -1,0 +1,31 @@
+.container {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container .title {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2em;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.title,
+.subtitle {
+  font-weight: 500;
+}
+.paragraph {
+  margin-bottom: 20px;
+}
+.paragraph li {
+  margin-left: 30px;
+  text-indent: -5px;
+}

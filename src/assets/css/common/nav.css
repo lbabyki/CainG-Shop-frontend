@@ -1,0 +1,102 @@
+.navbar {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+}
+.navbar.no-border {
+  border-bottom: none;
+}
+
+.navbar,
+.nav-links,
+.nav-link,
+.nav-links-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-links,
+.nav-link {
+  gap: 40px;
+}
+
+.nav-links-logo .nav-i {
+  font-size: 22px;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nav-links,
+.nav-links-logo {
+  font-size: 18px;
+}
+.nav-links span {
+  font-size: 18px;
+  font-weight: 900;
+}
+.navbar a {
+  text-decoration: none;
+  color: black;
+}
+.logo {
+  font-size: 40px;
+}
+.logo span:first-child {
+  background: linear-gradient(
+    to right,
+    var(--accent-light) 0%,
+    var(--accent-light) 45%,
+    white 45%,
+    white 55%,
+    var(--accent-light) 55%,
+    var(--accent-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  /* color: var(--accent-light); */
+}
+.logo span:last-child {
+  background: linear-gradient(
+    to bottom,
+    var(--accent-light) 0%,
+    var(--accent-light) 55%,
+    white 55%,
+    white 60%,
+    var(--accent-light) 60%,
+    var(--accent-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-i {
+  position: relative;
+  text-decoration: none;
+  padding: 8px 12px;
+  color: black;
+}
+
+/* Bình thường, ::after sẽ bị ẩn đi */
+.nav-i::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -26px;
+  height: 2px;
+  background-color: #000000;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-i.active::after {
+  transform: scaleX(1);
+}
