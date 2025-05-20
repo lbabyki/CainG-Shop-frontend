@@ -3,7 +3,7 @@ import { APP_API_URL } from "../../assets/config/API";
 import { useUser } from "../../context/userContext";
 
 function Accountdetails() {
-  const { user } = useUser();
+  const { user, logout } = useUser();
   const [password, setPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
   let token = localStorage.getItem("token");
@@ -59,7 +59,7 @@ function Accountdetails() {
       const result = await response.json();
       if (response.ok) {
         alert("Cập nhật thành công!");
-        console.log("Updated:", result);
+        logout();
       } else {
         alert(result.message || "Có lỗi xảy ra khi cập nhật.");
       }
