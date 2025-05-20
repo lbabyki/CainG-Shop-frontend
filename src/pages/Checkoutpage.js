@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../assets/css/checkoutpage.css";
+import emailjs from "emailjs-com";
 import { useCart } from "../context/cartContext";
 import { useOrder } from "../context/orderContext";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +8,7 @@ import { useUser } from "../context/userContext";
 import { useLocation } from "react-router-dom";
 
 function CheckOutPage() {
-  const { user, createUser } = useUser();
+  const { user, createUser, setUser } = useUser();
   const { cartItems, setCartItem } = useCart();
   const { CreateOrder } = useOrder();
   const navigate = useNavigate();
@@ -46,12 +47,13 @@ function CheckOutPage() {
       };
 
       const created = await createUser(newUser);
+      console.log(created);
+      setUser(created);
       if (!created) {
         alert("Không thể tạo tài khoản. Vui lòng thử lại.");
         return;
       }
     }
-
     // Kiểm tra các trường bắt buộc
     const requiredFields = [
       "firstName",
@@ -101,7 +103,11 @@ function CheckOutPage() {
         state: { message: "We’ve received your order" },
       });
     } else {
-      alert("Order khởi tạo không thành công");
+      if (!user) {
+        alert("bạn chưa đăng nhập");
+      } else {
+        alert("Order khởi tạo không thành công ");
+      }
     }
   };
 

@@ -85,7 +85,10 @@ export function OrderProvider({ children }) {
       setOrderItem((prev) => [...prev, savedOrder]);
       return savedOrder._id;
     } catch (error) {
-      console.error("❌ Lỗi khi xử lý đơn hàng:", error.message);
+      console.error(
+        "❌ Lỗi khi xử lý đơn hàng. Hãy đảm bảo rằng bạn đã đăng nhập:",
+        error.message
+      );
       return null;
     }
   };

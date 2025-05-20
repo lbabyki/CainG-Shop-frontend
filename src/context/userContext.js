@@ -15,7 +15,6 @@ export const UserProvider = ({ children }) => {
     setUser(null);
   };
   const createUser = async (userData) => {
-    console.log(userData);
     try {
       let response;
       if (user) {
@@ -30,22 +29,25 @@ export const UserProvider = ({ children }) => {
         );
         setUser(response.data);
       } else {
+        // Đăng ký tài khoản
         response = await axios.post(
           `${APP_API_URL}/api/users/register`,
           userData
         );
+        alert("Tài khoản đã được đăng ký");
       }
       return response.data;
     } catch (error) {
       console.error(
-        "Lỗi tạo tài khoản:",
+        "Bạn chưa đăng nhập:",
         error.response?.data || error.message
       );
       return null;
     }
   };
+
   return (
-    <UserContext.Provider value={{ user, login, logout, createUser }}>
+    <UserContext.Provider value={{ user, login, logout, createUser, setUser }}>
       {children}
     </UserContext.Provider>
   );
