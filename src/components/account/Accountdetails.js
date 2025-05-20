@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { APP_API_URL } from "../../assets/config/API";
 import { useUser } from "../../context/userContext";
+import { useNavigate } from "react-router-dom";
 
 function Accountdetails() {
   const { user, logout } = useUser();
   const [password, setPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
+  const navigate = useNavigate();
   let token = localStorage.getItem("token");
   const [formData, setFormData] = useState({
     firstName: "",
@@ -60,6 +62,7 @@ function Accountdetails() {
       if (response.ok) {
         alert("Cập nhật thành công!");
         logout();
+        navigate("/auth/login");
       } else {
         alert(result.message || "Có lỗi xảy ra khi cập nhật.");
       }
