@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { APP_API_URL } from "../../assets/config/API";
+import { useUser } from "../../context/userContext";
 
-function Accountdetails({ user, token }) {
+function Accountdetails() {
+  const { user } = useUser();
   const [password, setPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
+  let token = localStorage.getItem("token");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
